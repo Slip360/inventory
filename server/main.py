@@ -11,11 +11,10 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    @app.route('/', methods=['GET'])
-    def hello_world():
+    @app.route('/version', methods=['GET'])
+    def version():
         return jsonify({
-            "status": "success",
-            "message": "Inventory Web API - Online",
+            "app": "Inventory Management System",
             "version": "1.0.0"
         })
 
